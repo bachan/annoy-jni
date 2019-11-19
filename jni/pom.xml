@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.spotify</groupId>
-        <artifactId>annoy-jni</artifactId>
-        <version>1.0</version>
+        <artifactId>annoy</artifactId>
+        <version>0.1.4-tiki</version>
     </parent>
-    <artifactId>annoy-jni-jni</artifactId>
+    <artifactId>annoy-jni</artifactId>
     <packaging>jar</packaging>
-    <name>annoy-jni-jni</name>
+    <name>annoy-jni</name>
     <dependencies>
         <dependency>
             <groupId>com.github.fommil</groupId>
@@ -77,8 +77,8 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>com.spotify</groupId>
-                                    <artifactId>annoy-jni-native</artifactId>
-                                    <version>1.0</version>
+                                    <artifactId>annoy-native</artifactId>
+                                    <version>0.1.4-tiki</version>
                                     <type>so</type>
                                     <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/classes/linux-x64</outputDirectory>

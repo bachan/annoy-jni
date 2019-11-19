@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 				<parent>
 								<groupId>com.spotify</groupId>
-								<artifactId>annoy-jni</artifactId>
-								<version>1.0</version>
+								<artifactId>annoy</artifactId>
+								<version>0.1.4-tiki</version>
 				</parent>
-				<artifactId>annoy-jni-native</artifactId>
+				<artifactId>annoy-native</artifactId>
 				<packaging>so</packaging>
-    <name>annoy-jni-native</name>
+    <name>annoy-native</name>
     <build>
         <plugins>
             <plugin>
