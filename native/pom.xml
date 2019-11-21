@@ -3,13 +3,13 @@
     xmlns="http://maven.apache.org/POM/4.0.0"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-				<parent>
-								<groupId>com.spotify</groupId>
-								<artifactId>annoy</artifactId>
-								<version>0.1.4-tiki</version>
-				</parent>
-				<artifactId>annoy-native</artifactId>
-				<packaging>so</packaging>
+    <parent>
+        <groupId>com.spotify</groupId>
+        <artifactId>annoy</artifactId>
+        <version>0.1.4-tiki-2</version>
+    </parent>
+    <artifactId>annoy-native</artifactId>
+    <packaging>so</packaging>
     <name>annoy-native</name>
     <build>
         <plugins>
