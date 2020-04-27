@@ -64,6 +64,10 @@ class AnnoyIndexImpl implements AnnoyIndex {
     cppDtor(cppPtr);
   }
 
+  protected void finalize() throws Throwable {
+    close();
+  }
+
   public List<Float> getItemVector(int item) {
     return primitiveToBoxed(cppGetItemVector(cppPtr, dim, item));
   }
@@ -82,6 +86,9 @@ class AnnoyIndexImpl implements AnnoyIndex {
     this.dim = dim;
     System.load(Annoy.ANNOY_LIB_PATH);
     this.cppPtr = cppCtor(dim, angular.name().toLowerCase().charAt(0));
+    if (this.cppPtr == 0L) {
+      throw new RuntimeException("JNI constructor of AnnoyIndex returned null pointer");
+    }
   }
 
   AnnoyIndexImpl addItem(int item, List<Float> vector) {

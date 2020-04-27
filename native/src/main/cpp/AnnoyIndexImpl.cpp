@@ -8,16 +8,21 @@ extern "C" {
 
 jlong Java_com_spotify_annoy_jni_base_AnnoyIndexImpl_cppCtor(JNIEnv *env, jobject obj, jint dim, jint metric)
 {
-	switch (metric)
-	{
-	case 'a':
-		return (jlong) new AnnoyIndex<int, float, Angular, Kiss32Random>(dim);
-	case 'e':
-		return (jlong) new AnnoyIndex<int, float, Euclidean, Kiss32Random>(dim);
-	case 'm':
-		return (jlong) new AnnoyIndex<int, float, Manhattan, Kiss32Random>(dim);
-	case 'd':
-		return (jlong) new AnnoyIndex<int, float, DotProduct, Kiss32Random>(dim);
+	try {
+		switch (metric)
+		{
+		case 'a':
+			return (jlong) new AnnoyIndex<int, float, Angular, Kiss32Random>(dim);
+		case 'e':
+			return (jlong) new AnnoyIndex<int, float, Euclidean, Kiss32Random>(dim);
+		case 'm':
+			return (jlong) new AnnoyIndex<int, float, Manhattan, Kiss32Random>(dim);
+		case 'd':
+			return (jlong) new AnnoyIndex<int, float, DotProduct, Kiss32Random>(dim);
+		}
+	} catch (const std::exception &e) {
+		fprintf(stderr, "exception when trying to create new C++ AnnoyIndex: %s", e.what());
+		return (jlong) NULL;
 	}
 
 	return (jlong) NULL;
@@ -25,7 +30,8 @@ jlong Java_com_spotify_annoy_jni_base_AnnoyIndexImpl_cppCtor(JNIEnv *env, jobjec
 
 void Java_com_spotify_annoy_jni_base_AnnoyIndexImpl_cppDtor(JNIEnv *env, jobject obj, jlong cppPtr)
 {
-	delete (AnnoyIndexInterface<int, float> *) cppPtr; // XXX can we delete like this?
+	// this works well, because AnnoyIndexInterface destructor is virtual
+	delete (AnnoyIndexInterface<int, float> *) cppPtr;
 }
 
 void Java_com_spotify_annoy_jni_base_AnnoyIndexImpl_cppAddItem(JNIEnv *env, jobject obj, jlong cppPtr, jint item, jfloatArray vector)

@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.spotify</groupId>
         <artifactId>annoy</artifactId>
-        <version>0.1.4-tiki-2</version>
+        <version>0.1.4-tiki-4</version>
     </parent>
     <artifactId>annoy-native</artifactId>
     <packaging>so</packaging>
@@ -44,6 +44,7 @@
                         <compilerStartOption>-I ${JAVA_HOME}/include/linux/</compilerStartOption>
                     </compilerStartOptions>
                     <compilerEndOptions>
+                        <compilerEndOption>-O2</compilerEndOption>
                         <compilerEndOption>-fPIC</compilerEndOption>
                         <compilerEndOption>-std=c++11</compilerEndOption>
                         <compilerEndOption>-Wno-return-type</compilerEndOption>
