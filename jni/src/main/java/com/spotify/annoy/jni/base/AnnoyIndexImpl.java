@@ -64,10 +64,6 @@ class AnnoyIndexImpl implements AnnoyIndex {
     cppDtor(cppPtr);
   }
 
-  protected void finalize() throws Throwable {
-    close();
-  }
-
   public List<Float> getItemVector(int item) {
     return primitiveToBoxed(cppGetItemVector(cppPtr, dim, item));
   }

@@ -1,4 +1,4 @@
 #!/bin/sh
 
-JAVA_HOME=/usr/lib/jvm/oracle-java8-jdk-amd64/ mvn clean install
+JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/ mvn clean install
 
