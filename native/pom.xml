@@ -9,7 +9,7 @@
         <version>0.1.4-tiki-6</version>
     </parent>
     <artifactId>annoy-native</artifactId>
-    <packaging>so</packaging>
+    <packaging>dylib</packaging>
     <name>annoy-native</name>
     <build>
         <plugins>

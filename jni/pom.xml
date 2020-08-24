@@ -79,10 +79,10 @@
                                     <groupId>com.spotify</groupId>
                                     <artifactId>annoy-native</artifactId>
                                     <version>0.1.4-tiki-6</version>
-                                    <type>so</type>
+                                    <type>dylib</type>
                                     <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/classes/linux-x64</outputDirectory>
-                                    <destFileName>libannoy.so</destFileName>
+                                    <outputDirectory>${project.build.directory}/classes/mac-x64</outputDirectory>
+                                    <destFileName>libannoy.dylib</destFileName>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
