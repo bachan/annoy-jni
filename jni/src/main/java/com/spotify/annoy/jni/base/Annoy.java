@@ -75,19 +75,24 @@ public class Annoy {
   }
 
   public static AnnoyIndex loadIndex(String filename, int dim) throws FileNotFoundException {
-    return loadIndex(filename, dim, Metric.ANGULAR, 42);
+    return loadIndex(filename, dim, Metric.ANGULAR, 42, false);
   }
 
   public static AnnoyIndex loadIndex(String filename, int dim, Metric metric)
       throws FileNotFoundException {
-    return loadIndex(filename, dim, metric, 42);
+    return loadIndex(filename, dim, metric, 42, false);
   }
 
   public static AnnoyIndex loadIndex(String filename, int dim, Metric metric, int rngSeed)
       throws FileNotFoundException {
+    return loadIndex(filename, dim, metric, rngSeed, false);
+  }
+
+  public static AnnoyIndex loadIndex(String filename, int dim, Metric metric, int rngSeed, boolean prefault)
+      throws FileNotFoundException {
     return new AnnoyIndexImpl(dim, metric)
         .setSeed(rngSeed)
-        .load(filename);
+        .load(filename, prefault);
   }
 
   static final String ANNOY_LIB_PATH = extractAnnoyBinaries();

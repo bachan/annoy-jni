@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.spotify</groupId>
         <artifactId>annoy</artifactId>
-        <version>0.1.4-tiki-6</version>
+        <version>0.1.4-tiki-8</version>
     </parent>
     <artifactId>annoy-jni</artifactId>
     <packaging>jar</packaging>
@@ -78,7 +78,7 @@
                                 <artifactItem>
                                     <groupId>com.spotify</groupId>
                                     <artifactId>annoy-native</artifactId>
-                                    <version>0.1.4-tiki-6</version>
+                                    <version>0.1.4-tiki-8</version>
                                     <type>so</type>
                                     <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/classes/linux-x64</outputDirectory>

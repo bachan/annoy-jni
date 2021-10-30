@@ -106,11 +106,11 @@ class AnnoyIndexImpl implements AnnoyIndex {
     return this;
   }
 
-  AnnoyIndexImpl load(String filename) throws FileNotFoundException {
+  AnnoyIndexImpl load(String filename, boolean prefault) throws FileNotFoundException {
     if (Files.notExists(Paths.get(filename))) {
       throw new FileNotFoundException("Cannot find annoy index: " + filename);
     }
-    cppLoad(cppPtr, filename);
+    cppLoad(cppPtr, filename, prefault);
     return this;
   }
 
@@ -161,7 +161,7 @@ class AnnoyIndexImpl implements AnnoyIndex {
 
   private native void cppSave(long cppPtr, String filename);
 
-  private native void cppLoad(long cppPtr, String filename);
+  private native void cppLoad(long cppPtr, String filename, boolean prefault);
 
   private native float[] cppGetItemVector(long cppPtr, int dim, int item);
 

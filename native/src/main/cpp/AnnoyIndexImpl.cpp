@@ -135,11 +135,11 @@ void Java_com_spotify_annoy_jni_base_AnnoyIndexImpl_cppSave(JNIEnv *env, jobject
 	// TODO implement
 }
 
-void Java_com_spotify_annoy_jni_base_AnnoyIndexImpl_cppLoad(JNIEnv *env, jobject obj, jlong cppPtr, jstring filename)
+void Java_com_spotify_annoy_jni_base_AnnoyIndexImpl_cppLoad(JNIEnv *env, jobject obj, jlong cppPtr, jstring filename, jboolean prefault)
 {
 	AnnoyIndexInterface<int, float> *ann = (AnnoyIndexInterface<int, float> *) cppPtr;
 	const char *filenameCpp = env->GetStringUTFChars(filename, NULL);
-	ann->load(filenameCpp);
+	ann->load(filenameCpp, prefault);
 	env->ReleaseStringUTFChars(filename, filenameCpp);
 }
 
