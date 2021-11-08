@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.spotify</groupId>
     <artifactId>annoy</artifactId>
-    <version>0.1.4-tiki-8</version>
+    <version>0.1.4-tiki-9</version>
     <packaging>pom</packaging>
     <name>annoy</name>
     <properties>
