@@ -42,6 +42,7 @@
                     <compilerStartOptions>
                         <compilerStartOption>-I ${JAVA_HOME}/include/</compilerStartOption>
                         <compilerStartOption>-I ${JAVA_HOME}/include/linux/</compilerStartOption>
+                        <compilerStartOption>-I ${JAVA_HOME}/include/darwin/</compilerStartOption>
                     </compilerStartOptions>
                     <compilerEndOptions>
                         <compilerEndOption>-O2</compilerEndOption>
@@ -53,6 +54,7 @@
                     <linkerStartOptions>
                         <linkerStartOption>-I ${JAVA_HOME}/include/</linkerStartOption>
                         <linkerStartOption>-I ${JAVA_HOME}/include/linux/</linkerStartOption>
+                        <linkerStartOption>-I ${JAVA_HOME}/include/darwin/</linkerStartOption>
                         <linkerStartOption>-I ${JAVA_HOME}/lib/</linkerStartOption>
                         <linkerStartOption>-L ${basedir}/src/main/cpp/lib</linkerStartOption>
                     </linkerStartOptions>
