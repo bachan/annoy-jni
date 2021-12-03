@@ -6,22 +6,41 @@
     <parent>
         <groupId>com.spotify</groupId>
         <artifactId>annoy</artifactId>
-        <version>0.1.4-tiki-9</version>
+        <version>0.1.4-tiki-10</version>
     </parent>
     <artifactId>annoy-jni</artifactId>
     <packaging>jar</packaging>
     <name>annoy-jni</name>
+    <profiles>
+        <profile>
+            <id>mac</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                </os>
+            </activation>
+            <properties>
+                <my.os.name>mac</my.os.name>
+                <my.os.arch>${os.arch}</my.os.arch>
+                <my.os.libext>dylib</my.os.libext>
+            </properties>
+        </profile>
+        <profile>
+            <id>linux</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                    <name>Linux</name>
+                </os>
+            </activation>
+            <properties>
+                <my.os.name>linux</my.os.name>
+                <my.os.arch>${os.arch}</my.os.arch>
+                <my.os.libext>so</my.os.libext>
+            </properties>
+      </profile>
+    </profiles>
     <dependencies>
-        <dependency>
-            <groupId>com.github.fommil</groupId>
-            <artifactId>jniloader</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>30.0-jre</version>
-        </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -78,11 +97,11 @@
                                 <artifactItem>
                                     <groupId>com.spotify</groupId>
                                     <artifactId>annoy-native</artifactId>
-                                    <version>0.1.4-tiki-9</version>
-                                    <type>so</type>
+                                    <version>0.1.4-tiki-10</version>
+                                    <type>${my.os.libext}</type>
                                     <overWrite>false</overWrite>
-                                    <outputDirectory>${project.build.directory}/classes/linux-x64</outputDirectory>
-                                    <destFileName>libannoy.so</destFileName>
+                                    <outputDirectory>${project.build.directory}/classes/${my.os.name}-${my.os.arch}</outputDirectory>
+                                    <destFileName>libannoy.${my.os.libext}</destFileName>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>

@@ -20,8 +20,6 @@
 
 package com.spotify.annoy.jni.base;
 
-import static com.google.common.base.Preconditions.checkState;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -113,13 +111,15 @@ public class Annoy {
 
   private static String platform() {
     final String osArch = System.getProperty("os.arch");
-    checkState(osArch.contains("64"), "Annoy jni only supports x64 arch at the moment");
+    if (!osArch.contains("64")) {
+      throw new RuntimeException(String.format("Annoy jni only supports 64-bit arch at the moment, your arch is %s", osArch));
+    }
     final String osName = System.getProperty("os.name").toLowerCase();
     if (osName.contains("mac")) {
-      return "mac-x64";
+      return String.format("mac-%s", osArch);
     }
     if (osName.contains("linux")) {
-      return "linux-x64";
+      return String.format("linux-%s", osArch);
     }
     throw new RuntimeException("Annoy-jni only runs on Mac and Linux at the moment");
   }
