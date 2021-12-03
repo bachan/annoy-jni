@@ -98,7 +98,7 @@
                                     <groupId>com.spotify</groupId>
                                     <artifactId>annoy-native</artifactId>
                                     <version>0.1.4-tiki-10</version>
-                                    <type>${my.os.libext}</type>
+                                    <type>so</type>
                                     <overWrite>false</overWrite>
                                     <outputDirectory>${project.build.directory}/classes/${my.os.name}-${my.os.arch}</outputDirectory>
                                     <destFileName>libannoy.${my.os.libext}</destFileName>
